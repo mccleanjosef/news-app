@@ -3,6 +3,11 @@ $(document).ready(function(){
     console.log("script is linked");
 
     const searchBtn = document.querySelector('#searchBtn');
+    const hlSearchBtn = document.querySelector('#hlSearchBtn');
+
+    // defualt language
+    let language = $('#languageSelect').val();
+    console.log(language);
 
     // default from period (week)
     let fromPeriod = $('#fromDateSelect').val();
@@ -12,11 +17,15 @@ $(document).ready(function(){
         fromPeriod = $('#fromDateSelect').val();
     });
 
+    // default from period (week)
+    let sortOrder = $('#sortBySelect').val();
+
+    // search is submitted
     function keyword() {
         $('#resultsCtn').empty();
 
         // keyword query
-        let x = document.getElementById("myText");
+        let x = document.getElementById("search");
         let defaultVal = x.defaultValue;
         let currentVal = x.value;
 
@@ -46,12 +55,16 @@ $(document).ready(function(){
         }
         console.log(fromDate);
 
+        // // setting sort order based on selected sortby option
+        sortOrder = $('#sortBySelect').val();
+        console.log(sortOrder);
+
         // language select
         language = $('#languageSelect').val();
         
         console.log(language);
 
-        let url ="https://newsapi.org/v2/everything?q=" + currentVal + "&from=" + fromDate + "&sortBy=popularity&language=" + language + "&pageSize=10&apiKey=" + key;
+        let url ="https://newsapi.org/v2/everything?q=" + currentVal + "&from=" + fromDate + "&sortBy=" + sortOrder + "&language=" + language + "&pageSize=10&apiKey=" + key;
 
           $.ajax({
             method: 'GET',
@@ -76,21 +89,83 @@ $(document).ready(function(){
     // when language is changed run search to update
     $('#languageSelect').change(function(){
         keyword();
+        sourcesList();
     });
 
+    // headlines search is submitted
+    function headlinesSearch(){
+        $('#hlResultsCtn').empty();
 
-    
+        // country selection
+        let country = $('#countrySelect').val();
+        console.log(country);
+
+        // category selection
+        let category  = $('#categorySelect').val();
+        console.log(category);
+
+        let url ="https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category + "&pageSize=5&apiKey=" + key;
+
+          $.ajax({
+            method: 'GET',
+            url: url,
+            success: function(data){
+                // console.log(data);
+
+                for (let i = 0; i < data.articles.length; i++) {
+                    console.log(data.articles[i]);
+
+                    $('#hlResultsCtn').append(
+                        `
+                        ${data.articles[i].title}
+                        `
+                    );
+                }
+            
+            }
+        });
+    }
+
+
+
+
+    // List sources based on language
+    function sourcesList(){
+        $('#sourcesResultsCtn').empty();
+
+        let url ="https://newsapi.org/v2/top-headlines/sources?apiKey=" + key;
+
+          $.ajax({
+            method: 'GET',
+            url: url,
+            success: function(data){
+
+                for (let i = 0; i < data.sources.length; i++) {
+                    // console.log(data.sources[i]);
+
+                    if (data.sources[i].language === $('#languageSelect').val()){
+                        // console.log(data.sources[i]);
+                        $('#sourcesResultsCtn').append(
+                            `
+                            ${data.sources[i].name}
+                            `
+                        );
+                    }
+                    
+                }
+            
+            }
+        });
+    }
+    sourcesList();
+
+
 
     
 
 
     searchBtn.addEventListener("click", keyword);
-    
-
-    
-
-    
-
-    
+    hlSearchBtn.addEventListener("click", headlinesSearch);
+     
 
 });

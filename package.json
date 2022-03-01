@@ -9,8 +9,10 @@
   "author": "Josef McClean",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
+    "jquery": "^3.6.0",
     "sass": "^1.49.9"
   }
 }
