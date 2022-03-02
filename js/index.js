@@ -2,8 +2,30 @@ $(document).ready(function(){
 
     console.log("script is linked");
 
+    function goat() {
+        alert('Hello');
+    }
+
     const searchBtn = document.querySelector('#searchBtn');
     const hlSearchBtn = document.querySelector('#hlSearchBtn');
+
+    // Full page tab starts
+    $("#tab1").click(moveToFirst);
+    $("#tab2").click(moveToSecond);
+
+    function moveToFirst() {
+        $("#slide").attr('class', 'move-to-first');
+        $(".tab").attr('class', 'tab');
+        $("#tab1").attr('class', 'tab selected');
+    }
+
+    function moveToSecond() {
+        $("#slide").attr('class', 'move-to-second');
+        $(".tab").attr('class', 'tab');
+        $("#tab2").attr('class', 'tab selected');
+    }
+    // Full page tab ends
+
 
     // defualt language
     let language = $('#languageSelect').val();
@@ -101,7 +123,7 @@ $(document).ready(function(){
         console.log(country);
 
         // category selection
-        let category  = $('#categorySelect').val();
+        let category = document.querySelector('input[name="categorySelect"]:checked').value;
         console.log(category);
 
         let url ="https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category + "&pageSize=5&apiKey=" + key;
@@ -117,7 +139,14 @@ $(document).ready(function(){
 
                     $('#hlResultsCtn').append(
                         `
-                        ${data.articles[i].title}
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">${category}</h5>
+                                <h5 class="card-title">${data.articles[i].title}</h5>
+                                <p class="card-text">${data.articles[i].description}</p>
+                                <img src="${data.articles[i].urlToImage}" class="card-img-top" alt="Article image">
+                            </div>
+                        </div>
                         `
                     );
                 }
@@ -129,35 +158,35 @@ $(document).ready(function(){
 
 
 
-    // List sources based on language
-    function sourcesList(){
-        $('#sourcesResultsCtn').empty();
+    // // List sources based on language
+    // function sourcesList(){
+    //     $('#sourcesResultsCtn').empty();
 
-        let url ="https://newsapi.org/v2/top-headlines/sources?apiKey=" + key;
+    //     let url ="https://newsapi.org/v2/top-headlines/sources?apiKey=" + key;
 
-          $.ajax({
-            method: 'GET',
-            url: url,
-            success: function(data){
+    //       $.ajax({
+    //         method: 'GET',
+    //         url: url,
+    //         success: function(data){
 
-                for (let i = 0; i < data.sources.length; i++) {
-                    // console.log(data.sources[i]);
+    //             for (let i = 0; i < data.sources.length; i++) {
+    //                 // console.log(data.sources[i]);
 
-                    if (data.sources[i].language === $('#languageSelect').val()){
-                        // console.log(data.sources[i]);
-                        $('#sourcesResultsCtn').append(
-                            `
-                            ${data.sources[i].name}
-                            `
-                        );
-                    }
+    //                 if (data.sources[i].language === $('#languageSelect').val()){
+    //                     // console.log(data.sources[i]);
+    //                     $('#sourcesResultsCtn').append(
+    //                         `
+    //                         ${data.sources[i].name}
+    //                         `
+    //                     );
+    //                 }
                     
-                }
+    //             }
             
-            }
-        });
-    }
-    sourcesList();
+    //         }
+    //     });
+    // }
+    // sourcesList();
 
 
 

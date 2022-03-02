@@ -1,11 +1,76 @@
 @import "resets";
 
 body{
-    background-color: cadetblue;
-    padding: 5%;
+    width: 100%;
 }
 
 #resultsCtn{
     padding: 5% 0;
     font-size: 1.5rem;
+}
+
+#wrap {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  background: cadetblue;
+}
+
+.tab {
+    width: 50%;
+    border-bottom: 2px solid #777;
+    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    color: #777;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.selected {
+    color: orangered;
+    border-bottom: 4px solid orangered;
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    min-height: 800px;
+    overflow-x: hidden;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    position: absolute;
+}
+
+#first {
+    top: 0px;
+    left: 0px;
+}
+
+#second {
+    top: 0px;
+    left: 400px;
+}
+
+#slide {
+    transition: transform 0.5s ease-in-out 0s;
+    -moz-transition: -moz-transform 0.5s ease-in-out 0s;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out 0s;
+}
+
+.move-to-second {
+    transform: translateX(-400px);
+    -moz-transform: translateX(-400px);
+    -webkit-transform: translateX(-400px);
+}
+
+.move-to-first {
+    transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);    
 }
