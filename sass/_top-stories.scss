@@ -1,0 +1,68 @@
+.top-stories{
+    &__categories{
+        display: flex;
+    }
+    &__categories-wrap{
+        overflow-x: scroll;
+        padding: 1.5rem 5%;
+    }
+    &__category-label{
+        color: $grey;
+        // text-transform: uppercase;
+        letter-spacing: 0.05rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-right: 1.8rem;
+    }
+    &__category-input{
+        display: none;
+    }
+
+    &__submit-wrap{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 5% 0 5%;
+    }
+
+    &__country-label{
+        color: $darkgrey;
+        font-size: 1.2rem;
+        padding-top: 3px;
+    }
+
+    &__country-select{
+        width: 139px;
+        color: $darkgrey;
+        font-size: 1.2rem;
+        background: none;
+        border: none;
+        border-bottom: 1px solid $darkgrey;
+        &:focus-visible{
+            outline: none;
+            border-bottom: 2px solid $blue;
+        }
+    }
+
+    &__submit-btn{
+        background: $blue;
+        color: $lightgrey;
+        padding: 10px 20px 5px 20px;
+        border: none;
+        font-size: 1.3rem;
+        font-weight: 700;
+        &:hover{
+            background: $white;
+            color: $blue;
+        }
+    }
+
+
+}
+
+input[type="radio"]:checked+label{ 
+    color: $black;
+    border-bottom: 3px solid $blue;
+}
+

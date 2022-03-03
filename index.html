@@ -5,134 +5,200 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <select id="languageSelect">
-        <option value="de">Deutsch</option>
-        <option value="en" selected="selected">English</option>
-        <option value="ar">العربية</option>
-        <option value="es">Español</option>
-        <option value="fr">français</option>
-        <option value="he">עברית</option>
-        <option value="it">Italiano</option>
-        <option value="nl">Nederlands</option>
-        <option value="no">Norsk</option>
-        <option value="pt">Português</option>
-        <option value="ru">русский</option>
-        <option value="se">	Davvisámegiella</option>
-        <option value="zh">中文</option>
-    </select>
+    <nav class="navbar">
+        <a href="./index.html">
+            <img class="navbar__logo" src="./img/gobal-news-logo.svg" alt="Global News Logo">
+        </a>
+        <button class="btn btn-primary navbar__menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <img class="navbar__menu-icon" src="./img/menu-icon.svg" alt="side menu">
+        </button>
+    </nav>
+    
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+        </div>
+        <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
 
     <div id="wrap">
-        <div id="tab1" class="tab selected">Top Stories</div>
-        <div id="tab2" class="tab">Search</div>
+        <div id="tab1" class="tab selected top-stories">Top Stories</div>
+        <div id="tab2" class="tab search">Search</div>
   
         <div id="container">
-          <div id="slide" class="">
+            <div id="slide" class="">
                 <div>
-                    <label for="scountry">Country: </label>
-                        <select name="country" id="countrySelect">
-                            <option value="ae">	دولة الإمارات العربيّة المتّحدة</option>
-                            <option value="ar">Argentina</option>
-                            <option value="at">Österreich</option>
-                            <option value="au">Australia</option>
-                            <option value="be">België</option>
-                            <option value="bg">България</option>
-                            <option value="br">Brasil</option>
-                            <option value="ca">Canada</option>
-                            <option value="ch">Schweiz</option>
-                            <option value="cn">中国</option>
-                            <option value="co">Colombia</option>
-                            <option value="cz">Česká republika</option>
-                            <option value="de">Deutschland</option>
-                            <option value="eg">مصر</option>
-                            <option value="fr">France</option>
-                            <option value="gb">United Kingdom</option>
-                            <option value="gr">Ελλάδα</option>
-                            <option value="id">Indonesia</option>
-                            <option value="ie">Ireland</option>
-                            <option value="il">ישראל</option>
-                            <option value="in">भारत,</option>
-                            <option value="it">Italia</option>
-                            <option value="jp">日本</option>
-                            <option value="kr">대한민국</option>
-                            <option value="lt">Liechtenstein</option>
-                            <option value="lv">Latvija</option>
-                            <option value="ma">المغرب</option>
-                            <option value="mx">México</option>
-                            <option value="my">Malaysia</option>
-                            <option value="ng">Nigeria</option>
-                            <option value="nl">Nederland</option>
-                            <option value="no">Norge</option>
-                            <option value="nz" selected="selected">New Zealand</option>
-                            <option value="ph">Philippines</option>
-                            <option value="pl">Polska</option>
-                            <option value="pt">Portugal</option>
-                            <option value="ro">România</option>
-                            <option value="rs">Србија</option>
-                            <option value="ru">	Россия</option>
-                            <option value="sa">السعودية</option>
-                            <option value="se">Sverige</option>
-                            <option value="sg">Singapore</option>
-                            <option value="si">Slovenija</option>
-                            <option value="sk">Slovensko</option>
-                            <option value="th">ประเทศไทย</option>
-                            <option value="tr">Türkiye</option>
-                            <option value="tw">Taiwan</option>
-                            <option value="ua">Україна</option>
-                            <option value="us">United States of America</option>
-                            <option value="ve">Venezuela</option>
-                            <option value="za">South Africa</option>
-                        </select>
-    
-                        <div>
-                            <input type="radio" id="general" name="categorySelect" value="general" checked>
-                            <label for="general">General</label>
-                            <input type="radio" id="business" name="categorySelect" value="business">
-                            <label for="business">Business</label>
-                            <input type="radio" id="entertainment" name="categorySelect" value="entertainment">
-                            <label for="entertainment">Entertainment</label>
-                            <input type="radio" id="health" name="categorySelect" value="health">
-                            <label for="health">Health</label>
-                            <input type="radio" id="science" name="categorySelect" value="science">
-                            <label for="science">Science</label>
-                            <input type="radio" id="sports" name="categorySelect" value="sports">
-                            <label for="sports">Sports</label>
-                            <input type="radio" id="technology" name="categorySelect" value="technology">
-                            <label for="technology">Technology</label>
+                    <div id="first" class="box">
+                        <div class="top-stories__categories-wrap">
+                            <div id="categories" class="top-stories__categories">
+                                <input class="top-stories__category-input" type="radio" id="general" name="categorySelect" value="general" checked>
+                                <label class="top-stories__category-label" for="general">General</label>
+                                <input class="top-stories__category-input" type="radio" id="business" name="categorySelect" value="business">
+                                <label class="top-stories__category-label" for="business">Business</label>
+                                <input class="top-stories__category-input" type="radio" id="entertainment" name="categorySelect" value="entertainment">
+                                <label class="top-stories__category-label" for="entertainment">Entertainment</label>
+                                <input class="top-stories__category-input" type="radio" id="health" name="categorySelect" value="health">
+                                <label class="top-stories__category-label" for="health">Health</label>
+                                <input class="top-stories__category-input" type="radio" id="science" name="categorySelect" value="science">
+                                <label class="top-stories__category-label" for="science">Science</label>
+                                <input class="top-stories__category-input" type="radio" id="sports" name="categorySelect" value="sports">
+                                <label class="top-stories__category-label" for="sports">Sports</label>
+                                <input class="top-stories__category-input" type="radio" id="technology" name="categorySelect" value="technology">
+                                <label class="top-stories__category-label" for="technology">Technology</label>
+                            </div>
                         </div>
-    
-                        <button id="hlSearchBtn" type="submit">Search</button>
+
+                        <div class="top-stories__submit-wrap">
+                            <button class="top-stories__submit-btn" id="hlSearchBtn" type="submit">Search</button>
+
+                            <div class="top-stories__country-wrap">
+                                <label class="top-stories__country-label" for="country">in</label>
+                                <select class="top-stories__country-select" name="country" id="countrySelect">
+                                    <option value="ae">	دولة الإمارات العربيّة المتّحدة</option>
+                                    <option value="ar">Argentina</option>
+                                    <option value="at">Österreich</option>
+                                    <option value="au">Australia</option>
+                                    <option value="be">België</option>
+                                    <option value="bg">България</option>
+                                    <option value="br">Brasil</option>
+                                    <option value="ca">Canada</option>
+                                    <option value="ch">Schweiz</option>
+                                    <option value="cn">中国</option>
+                                    <option value="co">Colombia</option>
+                                    <option value="cz">Česká republika</option>
+                                    <option value="de">Deutschland</option>
+                                    <option value="eg">مصر</option>
+                                    <option value="fr">France</option>
+                                    <option value="gb">United Kingdom</option>
+                                    <option value="gr">Ελλάδα</option>
+                                    <option value="id">Indonesia</option>
+                                    <option value="ie">Ireland</option>
+                                    <option value="il">ישראל</option>
+                                    <option value="in">भारत,</option>
+                                    <option value="it">Italia</option>
+                                    <option value="jp">日本</option>
+                                    <option value="kr">대한민국</option>
+                                    <option value="lt">Liechtenstein</option>
+                                    <option value="lv">Latvija</option>
+                                    <option value="ma">المغرب</option>
+                                    <option value="mx">México</option>
+                                    <option value="my">Malaysia</option>
+                                    <option value="ng">Nigeria</option>
+                                    <option value="nl">Nederland</option>
+                                    <option value="no">Norge</option>
+                                    <option value="nz" selected="selected">New Zealand</option>
+                                    <option value="ph">Philippines</option>
+                                    <option value="pl">Polska</option>
+                                    <option value="pt">Portugal</option>
+                                    <option value="ro">România</option>
+                                    <option value="rs">Србија</option>
+                                    <option value="ru">	Россия</option>
+                                    <option value="sa">السعودية</option>
+                                    <option value="se">Sverige</option>
+                                    <option value="sg">Singapore</option>
+                                    <option value="si">Slovenija</option>
+                                    <option value="sk">Slovensko</option>
+                                    <option value="th">ประเทศไทย</option>
+                                    <option value="tr">Türkiye</option>
+                                    <option value="tw">Taiwan</option>
+                                    <option value="ua">Україна</option>
+                                    <option value="us">USA</option>
+                                    <option value="ve">Venezuela</option>
+                                    <option value="za">South Africa</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+
                         <div id="hlResultsCtn"></div>
                     </div>
-                    
-                    <div id="second" class="box">
-                        <input type="text" id="search" value="Apple">
-    
-                        <label for="from">From: </label>
-                        <select name="from" id="fromDateSelect">
-                            <option value="day">Last Day</option>
-                            <option value="week" selected="selected">Last Week</option>
-                            <option value="month">Last Month</option>
-                            <!-- Year gets too requests from API -->
-                            <!-- <option value="year">Last Year</option> -->
-                        </select>
-    
-                        <label for="sortBy">Sort by: </label>
-                        <select name="sortBy" id="sortBySelect">
-                            <option value="relevancy" selected="selected">Relevancy</option>
-                            <option value="popularity">Popularity</option>
-                            <option value="publishedAt">The Latest</option>
-                        </select>
-    
-                        <button id="searchBtn" type="submit">Search</button>
+
+                    <div id="second" class="box search">
+                        <div class="search__query-ctn">
+                            <input class="search__input" type="text" id="search" value="" placeholder="Type here">
+                            <button class="search__submit" id="searchBtn" type="submit">Search</button>
+
+                            <div class="accordion accordion-flush search__accordion" id="accordionFlushExample">
+                                <div class="accordion-item search__accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed search__accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Options
+                                    </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body search__accordion-body">
+                                        <div class="search__accordion-option">
+                                            <label for="sortBy">Sort by: </label>
+                                            <select class="search__search-option" name="sortBy" id="sortBySelect">
+                                                <option value="relevancy" selected="selected">Relevancy</option>
+                                                <option value="popularity">Popularity</option>
+                                                <option value="publishedAt">The Latest</option>
+                                            </select>
+                                        </div>
+                                        <div class="search__accordion-option">
+                                            <label for="languageSelect">Language: </label>
+                                            <select class="search__search-option" id="languageSelect">
+                                                <option value="de">Deutsch</option>
+                                                <option value="en" selected="selected">English</option>
+                                                <option value="ar">العربية</option>
+                                                <option value="es">Español</option>
+                                                <option value="fr">français</option>
+                                                <option value="he">עברית</option>
+                                                <option value="it">Italiano</option>
+                                                <option value="nl">Nederlands</option>
+                                                <option value="no">Norsk</option>
+                                                <option value="pt">Português</option>
+                                                <option value="ru">русский</option>
+                                                <option value="se">	Davvisámegiella</option>
+                                                <option value="zh">中文</option>
+                                            </select>
+                                        </div>
+                                        <div class="search__accordion-option">
+                                            <label for="from">From: </label>
+                                            <select class="search__search-option" name="from" id="fromDateSelect">
+                                                <option value="day">Last Day</option>
+                                                <option value="week" selected="selected">Last Week</option>
+                                                <option value="month">Last Month</option>
+                                                <!-- Year gets too requests from API -->
+                                                <!-- <option value="year">Last Year</option> -->
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="resultsCtn"></div>
+                    </div>
                 </div>
-                <div id="resultsCtn"></div></div>
-          </div>
+            </div>
         </div>
     </div>
     

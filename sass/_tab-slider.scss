@@ -1,0 +1,94 @@
+#wrap {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+//   background: cadetblue;
+  margin-top: 60px;
+}
+
+.tab {
+    width: 50%;
+    border-bottom: 1px solid $grey;
+    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    color: $grey;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+}
+
+.selected {
+    color: $blue;
+    border-bottom: 3px solid $blue;
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    position: absolute;
+}
+
+#first {
+    top: 0px;
+    left: 0px;
+}
+
+#second {
+    top: 0px;
+    left: 426px;
+}
+
+#slide {
+    transition: transform 0.3s ease-in-out 0s;
+    -moz-transition: -moz-transform 0.3s ease-in-out 0s;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out 0s;
+}
+
+.move-to-second {
+    transform: translateX(-426px);
+    -moz-transform: translateX(-426px);
+    -webkit-transform: translateX(-426px);
+}
+
+.move-to-first {
+    transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);    
+}
+
+/* Small Devices (Mobile) */
+// @media #{$mobile}{
+
+// }
+
+/* Medium Devices (Tablets) */
+@media #{$tablet} {
+    #second {
+        top: 0px;
+        left: 1024px;
+    }
+
+    .move-to-second {
+        transform: translateX(-1024px);
+        -moz-transform: translateX(-1024px);
+        -webkit-transform: translateX(-1024px);
+    }
+
+}
+
+/* Large Devices (Laptop/Desktop) */
+// @media #{$desktop}{
+
+// }
