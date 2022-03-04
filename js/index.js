@@ -89,21 +89,53 @@ $(document).ready(function(){
                 method: 'GET',
                 url: url,
                 success: function(data){
-                    // console.log(dateLastWeek);
-                    // if (currentVal = ""){
-                    //     console.log("yes");
-                    // }
 
                     for (let i = 0; i < data.articles.length; i++) {
                         console.log(data.articles[i]);
 
-                        $('#resultsCtn').append(
-                            `
-                            ${data.articles[i].title}
-                            `
-                        );
+                        if(data.articles[i].urlToImage !== "null"){
+                            $('#resultsCtn').append(
+                                `
+                                <div class="card top-story-select" id="${data.articles[i].publishedAt}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <div class="card__img-wrap">
+                                        <img src="${data.articles[i].urlToImage}" class="card__img" alt="Article image">
+                                    </div>
+                                    <div class="card-body card__card-body">
+                                        <h5 class="card__title">${data.articles[i].title}</h5>
+                                    </div>
+                                </div>
+                                `
+                            );
+                        }
                     }
+                    modal();
+                    
+                    // start of search modal
+                    function modal(){
+                        $(".top-story-select").click(function(){
+                            let i = 0;
+                            for(i = 0; i < data.articles.length; i++){
+                                if(this.id === data.articles[i].publishedAt){
+                                    $('#modalHeader').empty().append(
+                                        `
+                                        <button type="button" class="btn-close tsmodal__btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <img class="tsmodal__img" src="${data.articles[i].urlToImage}" alt="Article photo">
+                                        `
+                                    ); 
+                                    $('#modalBody').empty().append(
+                                        `
+                                        <h2 class="tsmodal__title">${data.articles[i].title}</h2>
+                                        <h3 class="tsmodal__description">${data.articles[i].description}</h3>
+                                        <p class="tsmodal__content">${data.articles[i].content}</p>
+                                        `
+                                    ); 
+                                }
             
+                            }
+                        });
+                    }
+                    // end of search modal
+
                 }
             });
         } else {
@@ -117,11 +149,13 @@ $(document).ready(function(){
         
     }
 
+    
+
     // when language is changed run search to update
-    $('#languageSelect').change(function(){
-        keyword();
-        // sourcesList();
-    });
+    // $('#languageSelect').change(function(){
+    //     keyword();
+    //     // sourcesList();
+    // });
 
     // headlines search is submitted
     function headlinesSearch(){
@@ -137,7 +171,7 @@ $(document).ready(function(){
 
         
 
-        let url ="https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category + "&pageSize=5&apiKey=" + key;
+        let url ="https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category + "&pageSize=10&apiKey=" + key;
 
           $.ajax({
             method: 'GET',
@@ -146,26 +180,62 @@ $(document).ready(function(){
                 // console.log(data);
 
                 for (let i = 0; i < data.articles.length; i++) {
-                    console.log(data.articles[i]);
+                    // console.log(data.articles[i]);
 
-                    $('#hlResultsCtn').append(
-                        `
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img src="${data.articles[i].urlToImage}" class="card__img" alt="Article image">
+                    if(data.articles[i].urlToImage !== null){
+                        $('#hlResultsCtn').append(
+                            `
+                            <div class="card top-story-select" id="${data.articles[i].publishedAt}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <div class="card__img-wrap">
+                                    <img src="${data.articles[i].urlToImage}" class="card__img" alt="Article image">
+                                </div>
+                                <div class="card-body card__card-body">
+                                    <h5 class="card__category">${category}</h5>
+                                    <h5 class="card__title">${data.articles[i].title}</h5>
+                                </div>
                             </div>
-                            <div class="card-body card__card-body">
-                                <h5 class="card__category">${category}</h5>
-                                <h5 class="card__title">${data.articles[i].title}</h5>
-                            </div>
-                        </div>
-                        `
-                    );
+                            `
+                        );
+                    }
+                    
                 }
+                modal();
+
+                
+                // start of top stories modal
+                function modal(){
+                    $(".top-story-select").click(function(){
+                        let i = 0;
+                        for(i = 0; i < data.articles.length; i++){
+                            if(this.id === data.articles[i].publishedAt){
+                                $('#modalHeader').empty().append(
+                                    `
+                                    <button type="button" class="btn-close tsmodal__btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <img class="tsmodal__img" src="${data.articles[i].urlToImage}" alt="Article photo">
+                                    `
+                                ); 
+                                $('#modalBody').empty().append(
+                                    `
+                                    <h2 class="tsmodal__title">${data.articles[i].title}</h2>
+                                    <h3 class="tsmodal__description">${data.articles[i].description}</h3>
+                                    <p class="tsmodal__content">${data.articles[i].content}</p>
+                                    `
+                                ); 
+                            }
             
+                        }
+                    });
+                }
+                // end of top stories modal
             }
         });
     }
+
+    // generate first headline stories
+    headlinesSearch();
+
+
+    
 
 
 

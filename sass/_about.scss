@@ -1,0 +1,79 @@
+.about{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    background: $blue;
+    margin-top: 60px;
+    color: $white;
+    padding: 2rem;
+    &__logo{
+        width: 200px;
+        margin: 1.5rem 0;
+        margin-bottom: 3rem;
+    }
+    &__subheader{
+        font-size: 1.5rem;
+        font-weight: 300;
+        padding-top: 0.1rem;
+        &--link{
+            color: $white;
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+        }
+    }
+    &__right-icon{
+        font-size: 1.8rem;
+        margin-left: 0.5rem;
+    }
+    &__ctn-profile{
+        padding-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-end;
+        text-align: right;
+        // justify-content: flex-end;
+    }
+    &__heading{
+        width: 100%;
+        text-align: right;
+        margin-top: 1rem;
+        &--small{
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+    }
+    &__profile-img{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        filter: grayscale(90%);
+        transition: filter 3s ease;
+        &:hover{
+            filter: grayscale(0%); 
+        }
+    }
+    &__ctn-left{
+        width: 100%;
+        display: flex;
+    }
+    &__ctn-right{
+        width: 100%;
+        display: flex;
+        text-align: right;
+        padding: 3rem 0;
+    }
+    &__text{
+        font-size: 1.5rem;
+    }
+    &__icon{
+        color: $white;
+        font-size: 5rem;
+        padding: 2rem;
+        padding-bottom: 0;
+    }
+}

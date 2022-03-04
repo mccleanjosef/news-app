@@ -9,9 +9,12 @@
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 5%;
+    background: $lightgrey;
+    z-index: 1;
 
     &__logo{
         height: 18px;
+        cursor: pointer;
     }
 
     &__menu-button{
@@ -23,4 +26,41 @@
     &__menu-icon{
         height: 10px;
     }
+}
+
+.offcanvas{
+    background: $blue;
+    color: $white;
+    padding: 1.5rem;
+    border-right: 6px solid $white;
+    &__header{
+        align-items: flex-start;
+    }
+    &__logo{
+        height: 70px;
+    }
+    &__close{
+        font-size: 1.5rem;
+    }
+    &__body{
+        display: flex;
+        flex-flow: column wrap;
+        padding-top: 5rem;
+        padding-left: 7%;
+    }
+    &__page-link{
+        text-decoration: none;
+        color: $lightgrey;
+        font-size: 2.5rem;
+        line-height: 2;
+        border-bottom: 4px solid $blue;
+        &:hover{
+            color: $white;
+            border-bottom: 4px solid $white;
+        }
+    }
+}
+
+.offcanvas-start{
+    width: 250px;
 }

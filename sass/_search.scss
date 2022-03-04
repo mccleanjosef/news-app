@@ -63,9 +63,13 @@
         }
     }
     &__error-mes{
+        width: 100vw;
         color: $blue;
         margin-top: 10%;
         letter-spacing: 0.05rem;
+        font-size: 1.3rem;
+        text-align: center;
+        font-weight: 500;
     }
 
 }

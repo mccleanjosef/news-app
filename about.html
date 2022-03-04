@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Global News</title>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="./index.html">
+            <img class="navbar__logo" src="./img/gobal-news-logo.svg" alt="Global News Logo">
+        </a>
+        <button class="btn btn-primary navbar__menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <img class="navbar__menu-icon" src="./img/menu-icon.svg" alt="side menu">
+        </button>
+    </nav>
+    
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header offcanvas__header">
+        <img class="offcanvas__logo" src="./img/global-news-vertical-logo-white.svg" alt="Global News Logo">
+        <button type="button" class="btn-close text-reset offcanvas__close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body offcanvas__body">
+        <a class="offcanvas__page-link" class="" href="./index.html">News</a>
+        <a class="offcanvas__page-link" href="./about.html">About</a>
+      </div>
+    </div>
+
+    <main class="about">
+        <img class="about__logo" src="./img/global-news-vertical-logo-white.svg" alt="global news logo">
+        <p class="about__subheader">Bringing you the latest news from around the globe!</p>
+        <p class="about__subheader">Created with</p><a class="about__subheader--link" href="https://newsapi.org/" target="blank">News API <i class="fa-solid fa-caret-right about__right-icon"></i></a>
+        <div class="about__ctn-profile">
+            <h1 class="about__heading">Made by Josef McClean</h1>
+            <img class="about__profile-img" src="./img/profile-img.jpg" alt="Josef Photo">
+        </div>
+        <h2 class="about__heading--small">Quick about me</h2>
+        <div class="about__ctn-left">
+            <p class="about__text">Studying Web and UX Design at Yoobee Colleges of Creative Innovation</p>
+            <i class="fa-solid fa-laptop-code about__icon"></i>
+        </div>
+        <div class="about__ctn-right">
+            <i class="fa-solid fa-pencil about__icon"></i>
+            <p class="about__text">Graphic Designer at MBS Digital Print with 4 years experience</p>
+        </div>
+        <div class="about__ctn-left">
+            <p class="about__text">Experienced Tramper</p>
+            <i class="fa-solid fa-mountain about__icon"></i>
+        </div>
+        <div class="about__ctn-right">
+            <i class="fa-solid fa-chess-rook about__icon"></i>
+            <p class="about__text">Strategy Gamer: Currently Age of Empires</p>
+        </div>
+        
+    </main>
+    
+    <!-- jQuery -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

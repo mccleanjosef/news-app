@@ -5,15 +5,12 @@
 @import "top-stories";
 @import "card";
 @import "search";
+@import "modal";
+@import "about";
 
 body{
     width: 100%;
     background: $lightgrey;
     font-family: $headingfont;
-}
-
-#resultsCtn{
-    padding: 5% 0;
-    font-size: 1.5rem;
 }
 

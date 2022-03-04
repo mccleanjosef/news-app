@@ -104,9 +104,12 @@ html {
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 5%;
+  background: #f1f1f1;
+  z-index: 1;
 }
 .navbar__logo {
   height: 18px;
+  cursor: pointer;
 }
 .navbar__menu-button {
   background: none;
@@ -114,6 +117,43 @@ html {
 }
 .navbar__menu-icon {
   height: 10px;
+}
+
+.offcanvas {
+  background: #0A18FD;
+  color: white;
+  padding: 1.5rem;
+  border-right: 6px solid white;
+}
+.offcanvas__header {
+  align-items: flex-start;
+}
+.offcanvas__logo {
+  height: 70px;
+}
+.offcanvas__close {
+  font-size: 1.5rem;
+}
+.offcanvas__body {
+  display: flex;
+  flex-flow: column wrap;
+  padding-top: 5rem;
+  padding-left: 7%;
+}
+.offcanvas__page-link {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-size: 2.5rem;
+  line-height: 2;
+  border-bottom: 4px solid #0A18FD;
+}
+.offcanvas__page-link:hover {
+  color: white;
+  border-bottom: 4px solid white;
+}
+
+.offcanvas-start {
+  width: 250px;
 }
 
 .top-stories__categories {
@@ -159,7 +199,7 @@ html {
 }
 .top-stories__submit-btn {
   background: #0A18FD;
-  color: #f1f1f1;
+  color: white;
   padding: 10px 20px 5px 20px;
   border: none;
   font-size: 1.3rem;
@@ -276,18 +316,140 @@ input[type=radio]:checked + label {
   border-bottom: 2px solid #0A18FD;
 }
 .search__error-mes {
+  width: 100vw;
   color: #0A18FD;
   margin-top: 10%;
   letter-spacing: 0.05rem;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.tsmodal {
+  height: 97vh;
+}
+.tsmodal__header {
+  height: 200px;
+  position: relative;
+}
+.tsmodal__btn-close {
+  font-size: 1.5rem;
+  position: absolute;
+  z-index: 1;
+  filter: invert(9%) sepia(100%) saturate(6017%) hue-rotate(244deg) brightness(114%) contrast(122%);
+  top: 8%;
+  right: 5%;
+}
+.tsmodal__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.tsmodal__body {
+  padding: 8%;
+}
+.tsmodal__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.tsmodal__description {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-left: 3px solid #0A18FD;
+  padding-left: 1.3rem;
+  margin: 2rem 0;
+}
+.tsmodal__content {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.about {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  background: #0A18FD;
+  margin-top: 60px;
+  color: white;
+  padding: 2rem;
+}
+.about__logo {
+  width: 200px;
+  margin: 1.5rem 0;
+  margin-bottom: 3rem;
+}
+.about__subheader {
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding-top: 0.1rem;
+}
+.about__subheader--link {
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+.about__right-icon {
+  font-size: 1.8rem;
+  margin-left: 0.5rem;
+}
+.about__ctn-profile {
+  padding-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-end;
+  text-align: right;
+}
+.about__heading {
+  width: 100%;
+  text-align: right;
+  margin-top: 1rem;
+}
+.about__heading--small {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+.about__profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(90%);
+  transition: filter 3s ease;
+}
+.about__profile-img:hover {
+  filter: grayscale(0%);
+}
+.about__ctn-left {
+  width: 100%;
+  display: flex;
+}
+.about__ctn-right {
+  width: 100%;
+  display: flex;
+  text-align: right;
+  padding: 3rem 0;
+}
+.about__text {
+  font-size: 1.5rem;
+}
+.about__icon {
+  color: white;
+  font-size: 5rem;
+  padding: 2rem;
+  padding-bottom: 0;
 }
 
 body {
   width: 100%;
   background: #f1f1f1;
   font-family: "Biryani", sans-serif;
-}
-
-#resultsCtn {
-  padding: 5% 0;
-  font-size: 1.5rem;
 }
